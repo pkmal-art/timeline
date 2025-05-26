@@ -124,7 +124,7 @@ const TimelineBlock = () => {
               {String(activeIndex + 1).padStart(2, "0")}/
               <span>{String(timelineData.length).padStart(2, "0")}</span>
             </div>
-            <div className="circle-nav-buttons">
+            <div className="slider__nav--buttons ">
               <button onClick={goPrev} className="circle-btn">
                 <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8.49988 0.750001L2.24988 7L8.49988 13.25" stroke="#42567A" strokeWidth="2" />
@@ -137,7 +137,7 @@ const TimelineBlock = () => {
               </button>
             </div>
           </div>
-          <div className="swiper-wrapper">
+          <div className="swiper__wrapper">
             <div className="custom-prev swiper-button-prev"></div>
             <div className="custom-next swiper-button-next"></div>
             <Swiper
@@ -148,11 +148,10 @@ const TimelineBlock = () => {
                 prevEl: ".custom-prev",
               }}
               modules={[Navigation]}
-              className="timeline--swiper"
             >
               {activePeriod.events.map((event, idx) => (
                 <SwiperSlide key={idx}>
-                  <article className="card">
+                  <article className="swiper__card">
                     <h3>{event.year}</h3>
                     <p>{event.description}</p>
                   </article>
