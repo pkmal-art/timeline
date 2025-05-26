@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'PTSans';
+  src: url('./fonts/PTSans-Regular.woff2') format('woff2'),
+       url('./fonts/PTSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTSans';
+  src: url('./fonts/PTSans-Bold.woff2') format('woff2'),
+       url('./fonts/PTSans-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BebasNeuePro';
+  src: url('./fonts/BebasNeuePro-Regular.woff2') format('woff2'),
+       url('./fonts/BebasNeuePro-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --font-family: "PTSans", sans-serif; 
+  --second-family: "BebasNeuePro", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1920px;
+  min-width: 375px;
+  font-family: var(--font-family); 
+  color: #374669;
+}
+
+.container {
+  margin: 0 auto;
+}
