@@ -1,23 +1,45 @@
-.timeline__wrapper {
-  display: flex;
-  justify-content: center;
-}
 
 .timeline__container {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 170px 80px 0px 80px;
-  width: 1440px;
+  padding: 50px 0 0px 0;
+  width: 100%;
+  height: 100vh;
   text-align: center;
-  
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #dfe3ec;
+    z-index: 0;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  .timeline__line--center {
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background-color: #dfe3ec;
+    z-index: 0;
+  }
 }
 
 .timeline__headerBlock {
   position: absolute;
   z-index: 2;
-  top: 0;
-  left: 0;
   width: 353px;
 }
 
@@ -43,8 +65,7 @@
   background: linear-gradient(to bottom, #7a50ff, #ff5ca2);
 }
 
-/* ЦЕНТРАЛЬНЫЕ ГОДЫ */
-.center__years {
+.timeline__years {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -75,15 +96,31 @@
   }
 }
 
-/* ОБЁРТКА ДЛЯ КРУГА */
-.time__circle-wrapper {
+
+.timeline__block{
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #dfe3ec;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+}
+
+.timeline__circle {
   position: relative;
   width: 534px;
   height: 534px;
-  margin: 40px auto;
+  margin: 40px auto;   
 }
 
-/* ВРАЩАЮЩИЙСЯ КРУГ */
+
 .time__circle {
   position: absolute;
   width: 100%;
@@ -94,12 +131,17 @@
   z-index: 1;
 }
 
-/* ТОЧКИ НА КРУГЕ */
 .time__point {
   position: absolute;
   transform: translate(-50%, -50%);
   text-align: center;
   cursor: pointer;
+
+  .time__point--content {    
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 
   .time__point--number {
     width: 56px;
@@ -113,7 +155,6 @@
     margin: 0 auto;
     transition: all 0.3s ease;
 
-    // Для неактивных
     &:empty {
       width: 6px;
       height: 6px;
@@ -121,7 +162,14 @@
       border: none;
       line-height: 0;
       font-size: 0;
-    }
+    }   
+  }
+
+  .time__point--category {
+    font-size: 20px;
+    font-weight: 700;
+    color: #42567A;
+    white-space: nowrap;
   }
 
   &.active .time__point--number {
@@ -138,8 +186,6 @@
   height: 100%;
   transform-origin: center center;
 }
-
-/* БЛОК СЛАЙДЕРА */
 
 .slider__block {
   position: relative;
@@ -165,14 +211,15 @@
       }
     }
 
-  .slider__nav--buttons {
-    display: flex;
-    gap: 20px;
-  }
+    .slider__nav--buttons {
+      display: flex;
+      gap: 20px;
+    }
 
   }
 
   .swiper__card {
+    height: 100%;
     text-align: left;
 
     h3 {
@@ -191,9 +238,10 @@
   }
 }
 
-/* КНОПКИ ПЕРЕКЛЮЧЕНИЯ ВРАЩЕНИЯ */
-
 .circle-btn {
+   display: flex;
+  align-items: center;
+  justify-content: center;
   background: white;
   border: 1px solid #dfe3ec;
   border-radius: 50%;
@@ -214,7 +262,11 @@
   padding: 17px 0;
 }
 
-/* ПЕРСОНАЛИЗИРОВАННЫЕ СТРЕЛКИ SWIPER */
+.swiper__wrapper,
+.swiper-slide {
+  height: 100%;
+}
+
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -243,3 +295,332 @@
   right: -60px;
 }
 
+@media (max-width: 1540px) {
+  .timeline__container {
+    padding: 30px 0 0px 0;
+  }
+
+  .timeline__title {
+    font-size: 48px;
+  }
+
+  .timeline__circle {
+    width: 500px;
+    height: 500px;
+  }
+
+  .timeline__years {
+    .from,
+    .to {
+      top: 30%;
+      font-size: 150px;
+    }
+  }
+}
+
+@media (max-width: 1380px) {
+
+  .timeline__title {
+    margin-bottom: 30px;
+    font-size: 42px;
+  }
+
+  .timeline__circle {
+    width: 450px;
+    height: 450px;
+  }
+
+  .timeline__years {
+    .from,
+    .to {
+      font-size: 130px;
+    }
+  }
+}
+
+@media (max-width: 1124px) {
+
+
+  .timeline__title {
+    margin-bottom: 30px;
+    font-size: 36px;
+  }
+
+  .timeline__circle {
+    margin: 60px auto;
+    width: 400px;
+    height: 400px;
+  }
+
+  .timeline__years {
+    .from,
+    .to {
+      top:33%;
+      font-size: 100px;
+    }
+  }
+
+  .time__point .time__point--number {
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+
+    &:empty {
+      width: 4px;
+      height: 4px;
+    }   
+  }
+}
+
+@media (max-width: 868px) {
+  .timeline__circle {
+    margin: 80px auto;
+    width: 350px;
+    height: 350px;
+  }
+
+  .timeline__years {
+    .from,
+    .to {
+      top:35%;
+      font-size: 78px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .timeline__title {
+    font-size: 32px;
+  }
+
+  .timeline__circle {
+    margin: 85px auto;
+    width: 300px;
+    height: 300px;
+  }
+
+  .timeline__years {
+    .from,
+    .to {
+      top:35%;
+      font-size: 72px;
+    }
+  }
+
+  .time__point .time__point--number {
+    width: 36px;
+    height: 36px;
+    line-height: 36px; 
+  }
+}
+
+
+@media (max-width: 576px) {
+  .timeline__wrapper {
+    padding: 30px 0 0 0;
+  .timeline__line--center {
+    display: none;
+  }
+}
+.timeline__container {
+  &::before, 
+  &::after {
+    display: none;
+  }
+}
+
+.timeline__headerBlock {
+  position: static;
+  width: 135px;
+  padding: 0;
+}
+
+.timeline__title {
+  font-size: 24px;
+  padding-left: 20px;
+  text-align: left;
+  line-height: 140%;
+  margin-bottom: 55px;
+}
+
+.timeline__block::before {
+    top: 100%;  
+}
+
+.timeline__circle {
+  width: 100%;
+  height: auto;
+  margin: 22px auto;
+}
+.time__circle {
+  display: none;
+}
+.time__point {
+  display: none;
+}
+
+.timeline__years {
+  position: static;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  .from,
+  .to {
+    position: static;
+    transform: none;
+    font-size: 48px;
+  }
+}
+
+.slider__block {
+  margin: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 25px;
+
+  .slider__controls {
+    position: static;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+     .slider__counter {
+      margin-bottom: 8px;
+     }
+    .slider__nav--buttons {
+      gap: 10px;
+    }
+  }
+
+  .circle-btn {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none;
+}
+
+.swiper-slide {
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  transform: scale(0.95);
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slider__navigation {
+  position: relative;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  height: 60px; 
+}
+
+.slider__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+
+  .slider__counter {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #374669;
+
+    span {
+      color: #d0d5e2;
+    }
+  }
+
+  .slider__nav--buttons {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.custom-pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  z-index: 1;
+
+  .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #D0D5E2;
+    border-radius: 50%;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #42567A;
+  }
+}
+
+.slider__block {
+  .swiper__card {      
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #3877EE;
+      margin-bottom: 17px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      color: #42567a;
+    }
+  }
+
+  .circle-btn {
+    width: 25px;
+    height: 25px;
+  }
+
+  .circle-btn>svg {
+    width: 7px;
+    height: 7px;
+  }
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .timeline__title {
+    font-size: 18px;
+    padding-left: 0;
+    text-align: left;
+    line-height: 140%;
+
+    &::before {
+      display: none;
+    }
+  }
+
+   .timeline__years {
+      margin-bottom: 60px;
+
+    .from,
+    .to {
+      font-size: 54px;
+    }
+  }
+}

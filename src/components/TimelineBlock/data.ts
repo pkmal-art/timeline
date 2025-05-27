@@ -5,6 +5,7 @@ export const timelineData: TimePriod[] = [
     label: '1985-1994',
     beginningTimePeriod: '1985',
     endTimePeriod: '1994',
+    category: 'Технологии',
     events: [
       { year: '1985', description: 'Вышла первая версия Windows 1.0 от Microsoft.' },
       { year: '1986', description: 'Произошла катастрофа на Чернобыльской АЭС — крупнейшая техногенная авария.' },
@@ -22,6 +23,7 @@ export const timelineData: TimePriod[] = [
     label: '1995-1999',
     beginningTimePeriod: '1995',
     endTimePeriod: '1999',
+    category: 'Интернет',
     events: [
       { year: '1995', description: 'Запущен сайт Amazon.com как книжный интернет-магазин.' },
       { year: '1996', description: 'Компьютер Deep Blue впервые победил гроссмейстера в шахматах.' },
@@ -64,6 +66,7 @@ export const timelineData: TimePriod[] = [
     label: '2016-2020',
     beginningTimePeriod: '2016',
     endTimePeriod: '2020',
+    category: 'Культура',
     events: [
       { year: '2016', description: 'Леонардо ДиКаприо получил свой первый «Оскар» за роль в фильме «Выживший».' },
       { year: '2017', description: 'На аукционе картина Хокни продана за рекордные $90 млн среди живых художников.' },

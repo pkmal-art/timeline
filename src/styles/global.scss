@@ -31,11 +31,61 @@ body {
   margin: 0 auto;
   padding: 0;
   max-width: 1920px;
-  min-width: 375px;
+  min-width: 320px;
   font-family: var(--font-family); 
   color: #374669;
 }
 
 .container {
   margin: 0 auto;
+  max-width: 1440px;
+  
+}
+
+@media (max-width: 1540px) {
+  .container {
+    width: 1280px;
+  }
+}
+
+@media (max-width: 1380px) {
+  .container {
+    width: 1024px;
+  }
+}
+
+@media (max-width: 1124px) {
+  .container {
+    width: 800px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 768px;
+  }
+}
+
+@media (max-width: 868px) {
+  .container {
+    width: 600px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 480px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 320px;
+  }
+}
+
+@media (max-width: 350px) {
+  .container {
+   width: 280px;
+  }
 }
