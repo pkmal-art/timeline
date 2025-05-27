@@ -1,4 +1,4 @@
-![Timeline History Block](public/preview.png)
+![Timeline History Block](public/img/preview.png)
 
 # Timeline History Block
 
